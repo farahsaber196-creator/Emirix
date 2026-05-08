@@ -185,15 +185,25 @@ body, .stApp { background-color: #f5f5f5; color: #1a1a1a; }
 
 # ── TTS JavaScript ────────────────────────────────────────────
 def tts_button(text, idx):
-    safe_text = text.replace("'", "\\'").replace('"', '\\"').replace('\n', ' ')
-    return (
-        f'<button class="voice-btn" onclick="'
-        f'var u=new SpeechSynthesisUtterance(\'{safe_text}\');'
-        f'u.lang=\'ar-AE\';'
-        f'window.speechSynthesis.cancel();'
-        f'window.speechSynthesis.speak(u);">🔊 Listen</button>'
-    )
-
+    try:
+        from gtts import gTTS
+        import io, base64
+        tts = gTTS(text=text, lang='en')
+        buf = io.BytesIO()
+        tts.write_to_fp(buf)
+        buf.seek(0)
+        b64 = base64.b64encode(buf.read()).decode()
+        return f'''
+            <audio id="audio_{idx}" src="data:audio/mp3;base64,{b64}"></audio>
+            <button class="voice-btn" 
+                onclick="document.getElementById('audio_{idx}').play()">
+                🔊 Listen
+            </button>
+        '''
+    except:
+        return ""
+ 
+    
 
 # ── Load RAG ─────────────────────────────────────────────────
 @st.cache_resource
