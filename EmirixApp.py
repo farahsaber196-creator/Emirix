@@ -375,7 +375,7 @@ with col_main:
                 f'<div class="bot-avatar">🤖</div>'
                 f'<div class="msg-bot">{msg["content"]}</div>'
                 f'</div>',
-                unsafe_allow_html=True
+         unsafe_allow_html=True
             )
             if msg.get("citations"):
                 items = "".join(
