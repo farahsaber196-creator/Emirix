@@ -377,7 +377,7 @@ with col_main:
                 f'</div>',
                 unsafe_allow_html=True
             )
-           st.markdown('<button class="voice-btn">🔊 Listen</button>', unsafe_allow_html=True)
+               st.markdown('<button class="voice-btn">🔊 Listen</button>', unsafe_allow_html=True)
             if msg.get("citations"):
                 items = "".join(
                     f'<div class="citation-item">📄 {c}</div>'
