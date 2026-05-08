@@ -10,7 +10,7 @@ from langchain_core.prompts import ChatPromptTemplate
 # ── Page Config ──────────────────────────────────────────────
 st.set_page_config(
     page_title="EMIRIX | UAE University Library",
-    page_icon="📚",
+    page_icon="🤖",
     layout="wide"
 )
 
@@ -307,8 +307,8 @@ with col_side:
             <div class="nav-item">👤 &nbsp; My Account</div>
         </div>
         <div class="sidebar-footer">
-            Powered by Gemini & LangChain<br>
-            © 2025 EMIRIX · UAEU
+            Powered by HEFAN team<br>
+            © 2026 EMIRIX 
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -317,7 +317,7 @@ with col_main:
     st.markdown("""
     <div class="chat-topbar">
         <div>
-            <div class="topbar-title">📚 Library Assistant</div>
+            <div class="topbar-title">🤖 Library Assistant</div>
             <div style="font-size:12px;color:#888;margin-top:2px">
                 Ask about books, research papers, and academic resources
             </div>
