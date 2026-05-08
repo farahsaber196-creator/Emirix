@@ -275,7 +275,8 @@ with col_side:
     # logo_tag  = '<img src="https://your-logo-url.png">'
 
     import base64
-    from PIL import Image = Image.open("IMG-20260502-WA0007.ico").convert("RGBA")
+    from PIL import Image
+    _ico = Image.open("IMG-20260502-WA0007.ico").convert("RGBA")
     import io
     _ico = Image.open("IMG-20260502-WA0007.ico").convert("RGBA")
     _buf = io.BytesIO()
