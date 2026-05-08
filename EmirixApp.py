@@ -370,7 +370,7 @@ with col_main:
         else:
             st.markdown(
                 f'<div class="msg-wrap-bot">'
-                f'<div class="bot-avatar">E</div>'
+                f'<div class="bot-avatar">🤖</div>'
                 f'<div class="msg-bot">{msg["content"]}</div>'
                 f'</div>',
                 unsafe_allow_html=True
@@ -385,7 +385,7 @@ with col_main:
                 )
                 st.markdown(
                     f'<div class="citation-box">'
-                    f'<div class="citation-label">📚 Sources</div>'
+                    f'<div class="citation-label">📖 Sources</div>'
                     f'{items}'
                     f'</div>',
                     unsafe_allow_html=True
