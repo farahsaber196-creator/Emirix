@@ -276,9 +276,9 @@ with col_side:
 
     import base64
     from PIL import Image
-    _ico = Image.open("IMG-20260502-WA0007.ico").convert("RGBA")
+    _ico = Image.open("IMG-20260502-WA0007.jpg").convert("RGBA")
     import io
-    _ico = Image.open("IMG-20260502-WA0007.ico").convert("RGBA")
+    _ico = Image.open("IMG-20260502-WA0007.jpg").convert("RGBA")
     _buf = io.BytesIO()
     _ico.save(_buf, format="PNG")
     ico_b64 = base64.b64encode(_buf.getvalue()).decode()
