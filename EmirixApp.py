@@ -381,9 +381,9 @@ with col_main:
                 unsafe_allow_html=True
             )
             # ── Voice Button ──────────────────────────────
-           audio = tts_button(msg["content"], i)
-if audio:
-    st.audio(audio, format="audio/mp3")
+          audio = tts_button(msg["content"], i)
+                if audio:
+                    st.audio(audio, format="audio/mp3")
             if msg.get("citations"):
                 items = "".join(
                     f'<div class="citation-item">📄 {c}</div>'
