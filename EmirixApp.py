@@ -377,8 +377,8 @@ with col_main:
                 f'</div>',
          unsafe_allow_html=True
             )
-            if msg.get("citations"):
-                items = "".join(
+           if msg.get("citations"):
+               items = "".join(
                     f'<div class="citation-item">📄 {c}</div>'
                     for c in msg["citations"]
                 )
