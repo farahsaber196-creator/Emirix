@@ -9,7 +9,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from gtts import gTTS
 import io
 import base64
-ب
+
 # ── Page Config ──────────────────────────────────────────────
 st.set_page_config(
     page_title="EMIRIX | UAE University Library",
