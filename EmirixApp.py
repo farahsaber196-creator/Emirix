@@ -381,7 +381,7 @@ with col_main:
                 unsafe_allow_html=True
             )
             # ── Voice Button ──────────────────────────────
-          audio = tts_button(msg["content"], i)
+        audio = tts_button(msg["content"], i)
                 if audio:
                     st.audio(audio, format="audio/mp3")
             if msg.get("citations"):
