@@ -192,17 +192,9 @@ def tts_button(text, idx):
         buf = io.BytesIO()
         tts.write_to_fp(buf)
         buf.seek(0)
-        b64 = base64.b64encode(buf.read()).decode()
-        return f'''
-            <audio id="audio_{idx}" src="data:audio/mp3;base64,{b64}"></audio>
-            <button class="voice-btn" 
-                onclick="document.getElementById('audio_{idx}').play()">
-                🔊 Listen
-            </button>
-        '''
+        return buf
     except:
-        return ""
- 
+        return None
     
 
 # ── Load RAG ─────────────────────────────────────────────────
@@ -389,8 +381,9 @@ with col_main:
                 unsafe_allow_html=True
             )
             # ── Voice Button ──────────────────────────────
-            st.markdown(tts_button(msg["content"], i), unsafe_allow_html=True)
-
+           audio = tts_button(msg["content"], i)
+if audio:
+    st.audio(audio, format="audio/mp3")
             if msg.get("citations"):
                 items = "".join(
                     f'<div class="citation-item">📄 {c}</div>'
