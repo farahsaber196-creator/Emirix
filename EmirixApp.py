@@ -38,7 +38,7 @@ body, .stApp { background-color: #f5f5f5; color: #1a1a1a; }
 .sidebar-logo img {
     width: 120px;
     margin-bottom: 12px;
-    filter: brightness(0) invert(1);
+ filter: none;  /* ✅ */
 }
 .sidebar-title {
     font-size: 22px; font-weight: 700;
