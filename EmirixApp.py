@@ -373,12 +373,13 @@ with col_main:
                 unsafe_allow_html=True
             )
         else:
-            st.markdown(
+           st.markdown(
                 f'<div class="msg-wrap-bot">'
                 f'<div class="bot-avatar">🤖</div>'
                 f'<div class="msg-bot">{msg["content"]}</div>'
                 f'</div>',
                 unsafe_allow_html=True
+            )
            # ── Voice Button ──────────────────────────────
             audio = tts_button(msg["content"], i)
             if audio:
