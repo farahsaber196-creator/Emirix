@@ -208,8 +208,8 @@ def load_rag():
         search_type="mmr",
         search_kwargs={"k": 4, "fetch_k": 20}
     )
-    os.environ["GOOGLE_API_KEY"] = "AIzaSyB_i3N1xzj7NrLNl79yWyeq3B4bybj8FQg"
-    llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.2)
+    os.environ GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
+    llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0.2)
     system_prompt = (
         "You are Emirix, a professional Library Assistant "
         "for the UAE University Library Repository. "
