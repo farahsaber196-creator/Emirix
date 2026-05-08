@@ -378,7 +378,7 @@ with col_main:
                 unsafe_allow_html=True
             )
          # ── Voice Button ──────────────────────────────
-            st.markdown(tts_button(msg["content"], i), unsafe_allow_html=True)
+st.markdown(tts_button(msg["content"], i), unsafe_allow_html=True)
             if msg.get("citations"):
                 items = "".join(
                     f'<div class="citation-item">📄 {c}</div>'
