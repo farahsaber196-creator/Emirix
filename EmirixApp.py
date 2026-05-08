@@ -195,7 +195,7 @@ def tts_button(text, idx):
 # ── Load RAG ─────────────────────────────────────────────────
 @st.cache_resource
 def load_rag():
-    persist_directory = r"C:\Users\RTX\OneDrive\Desktop\EMIRIX RAG\vector_DB"
+    persist_directory = "vector_DB"
     embeddings = HuggingFaceEmbeddings(
         model_name="intfloat/multilingual-e5-large",
         encode_kwargs={"normalize_embeddings": True}
@@ -208,15 +208,21 @@ def load_rag():
         search_type="mmr",
         search_kwargs={"k": 4, "fetch_k": 20}
     )
-    os.environ ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
-    llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0.2)
+    llm = ChatGoogleGenerativeAI(
+    model="gemini-2.5-flash",
+    temperature=0.2,
+    google_api_key=st.secrets["GOOGLE_API_KEY"]
+    )
     system_prompt = (
         "You are Emirix, a professional Library Assistant "
         "for the UAE University Library Repository. "
-        "Answer in the same language the user uses (Arabic or English). "
+        "Answer in the same language the user uses "
+        "(Arabic or English). "
         "Use ONLY the retrieved context to answer. "
-        "If not found say: I don't have this in the UAE University Library. "
-        "Be concise, academic, and helpful.\n\nContext: {context}"
+        "If not found say: "
+        "'I don't have this in the UAE University Library.' "
+        "Be concise, academic, and helpful."
+        "\\n\\nContext: {context}"
     )
     prompt = ChatPromptTemplate.from_messages([
         ("system", system_prompt),
@@ -269,7 +275,7 @@ with col_side:
     # logo_tag  = '<img src="https://your-logo-url.png">'
 
     import base64
-    from PIL import Image icon = Image.open("IMG-20260502-WA0007.ico").convert("RGBA")
+    from PIL import Image = Image.open("IMG-20260502-WA0007.ico").convert("RGBA")
     import io
     _ico = Image.open("IMG-20260502-WA0007.ico").convert("RGBA")
     _buf = io.BytesIO()
