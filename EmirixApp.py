@@ -382,7 +382,7 @@ with col_main:
                     f'<div class="citation-item">📄 {c}</div>'
                     for c in msg["citations"]
                 )
-                st.markdown(
+               st.markdown(
                     f'<div class="citation-box">'
                     f'<div class="citation-label">📖 Sources</div>'
                     f'{items}'
