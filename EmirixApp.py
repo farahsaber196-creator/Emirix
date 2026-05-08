@@ -185,17 +185,14 @@ body, .stApp { background-color: #f5f5f5; color: #1a1a1a; }
 
 # ── TTS JavaScript ────────────────────────────────────────────
 def tts_button(text, idx):
-    try:
-        from gtts import gTTS
-        import io, base64
-        tts = gTTS(text=text, lang='en')
-        buf = io.BytesIO()
-        tts.write_to_fp(buf)
-        buf.seek(0)
-        return buf
-    except:
-        return None
-    
+    safe_text = text.replace('"', '\\"').replace("'", "\\'").replace('\n', ' ')
+    return (
+        f'<button class="voice-btn" onclick="'
+        f'var u=new SpeechSynthesisUtterance(\'{safe_text}\');'
+        f'u.lang=\'ar-AE\';'
+        f'window.speechSynthesis.cancel();'
+        f'window.speechSynthesis.speak(u);">🔊 Listen</button>'
+    )
 
 # ── Load RAG ─────────────────────────────────────────────────
 @st.cache_resource
@@ -381,9 +378,7 @@ with col_main:
                 unsafe_allow_html=True
             )
            # ── Voice Button ──────────────────────────────
-            audio = tts_button(msg["content"], i)
-            if audio:
-                st.audio(audio, format="audio/mp3")
+            st.markdown(tts_button(msg["content"], i), unsafe_allow_html=True)
             if msg.get("citations"):
                 items = "".join(
                     f'<div class="citation-item">📄 {c}</div>'
